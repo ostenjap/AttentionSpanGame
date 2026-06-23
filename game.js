@@ -380,7 +380,7 @@ Average Reaction Time: ${rt}
 Dopamine Swipes: ${swipes}
 Autopilot Glitches: ${glitches}
 -----------------------------------------
-Check your attention span: [Insert Link Here]`;
+Check your attention span: ${window.location.href}`;
 
     navigator.clipboard.writeText(shareText).then(() => {
       // Trigger toast
