@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Goldfish Protocol - Attention Span Diagnostic Game</title>
+  <meta name="description" content="A clinical diagnostic assessment measuring cognitive speed, trivia accuracy, reading comprehension, and attention span.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="lab-title">Neurological Response Lab</div>
+  </header>
+
+  <main>
+    <!-- Card Container -->
+    <div id="game-card" class="card animate-fade">
+      
+      <!-- 1. START SCREEN -->
+      <div id="start-screen" class="start-container">
+        <h1 class="start-title">The Goldfish Protocol</h1>
+        <div class="tagline">Attention Span Diagnostic Game</div>
+        
+        <div class="description-box">
+          <p>Welcome to the <strong>Goldfish Protocol Cognitive Assessment</strong>.</p>
+          <p>This assessment is designed to measure your attention span, reading comprehension, visual focus, and impulse control through a series of 30 rapid-fire cognitive questions.</p>
+          <p><strong>Assessment Guidelines:</strong></p>
+          <p>• The quiz will advance immediately upon selecting an answer.<br>
+             • No feedback will be provided during the test to prevent response conditioning.<br>
+             • Answer as quickly and accurately as possible.</p>
+        </div>
+        
+        <button id="start-btn" class="btn-primary">Begin Diagnostic Assessment</button>
+      </div>
+
+      <!-- 2. QUIZ SCREEN -->
+      <div id="quiz-screen" class="quiz-container" style="display: none;">
+        <div class="progress-wrapper">
+          <div id="progress-text" class="progress-text">Question 1 of 30</div>
+          <div class="progress-bar-bg">
+            <div id="progress-bar-fill" class="progress-bar-fill"></div>
+          </div>
+        </div>
+
+        <div class="question-text-area">
+          <!-- Wall of Text (Speed Trap) will populate here when active -->
+          <div id="wall-text" class="wall-of-text-content" style="display: none;"></div>
+          <!-- Standard question text -->
+          <h2 id="question-prompt" class="question-prompt">Question text goes here?</h2>
+        </div>
+
+        <div id="options-list" class="options-list">
+          <button class="option-btn" data-index="0">Option 1</button>
+          <button class="option-btn" data-index="1">Option 2</button>
+          <button class="option-btn" data-index="2">Option 3</button>
+          <button class="option-btn" data-index="3">Option 4</button>
+        </div>
+      </div>
+
+      <!-- 3. RESULTS SCREEN -->
+      <div id="results-screen" class="results-container" style="display: none;">
+        <div class="badge-wrapper">
+          <div id="animal-badge" class="animal-badge">🐙</div>
+        </div>
+        
+        <h2 id="diagnosis-label" class="diagnosis-label">Octopus</h2>
+        <div id="roast-status" class="roast-status status-un-cooked">Status: Un-Cooked</div>
+        
+        <p id="roast-description" class="roast-description">
+          You actually read the prompts instead of blindly clicking for dopamine. Your brain survived the algorithm.
+        </p>
+
+        <!-- Cooked Shrimp Meter -->
+        <div class="shrimp-meter-wrapper">
+          <div class="shrimp-meter-header">
+            <span>Dopamine Cooking Level</span>
+            <span id="shrimp-level-text">Raw 🦐</span>
+          </div>
+          <div class="shrimp-meter-bar">
+            <!-- The indicator will move horizontally from 0% (green/raw) to 100% (red/deep fried) -->
+            <div id="shrimp-indicator" class="shrimp-indicator">🦐</div>
+          </div>
+          <div class="shrimp-labels">
+            <span>Raw (0%)</span>
+            <span>Medium (50%)</span>
+            <span>Deep Fried (100%)</span>
+          </div>
+        </div>
+
+        <!-- Stats Breakdown Table -->
+        <table class="stats-table">
+          <thead>
+            <tr>
+              <th>Diagnostic Metric</th>
+              <th>Score / Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Trivia Accuracy</td>
+              <td id="stat-trivia-accuracy">95%</td>
+            </tr>
+            <tr>
+              <td>Average Reaction Time</td>
+              <td id="stat-reaction-time">1.82s</td>
+            </tr>
+            <tr>
+              <td>Dopamine Swipes (Speed Traps)</td>
+              <td id="stat-dopamine-swipes" class="score-highlight">0</td>
+            </tr>
+            <tr>
+              <td>Autopilot Glitches (Trick Failures)</td>
+              <td id="stat-autopilot-glitches" class="score-highlight">0</td>
+            </tr>
+            <tr>
+              <td>Text Traps Evaded</td>
+              <td id="stat-text-traps">4/4 🍌</td>
+            </tr>
+            <tr>
+              <td>Memory Recalls (Ego Checks)</td>
+              <td id="stat-ego-checks">3/3</td>
+            </tr>
+            <tr>
+              <td>Final Attention Score</td>
+              <td id="stat-final-score" class="score-highlight" style="font-weight: 700; color: var(--accent-color);">92%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="actions-wrapper">
+          <button id="share-btn" class="btn-primary">Share Diagnostic Report</button>
+          <button id="restart-btn" class="btn-secondary">Re-Assess Brain</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="toast" class="toast">Diagnostic report copied to clipboard!</div>
+
+  <footer>
+    <p>Neurological Response Lab © 2026. For research and evaluation purposes only.</p>
+  </footer>
+
+  <!-- Load Scripts -->
+  <script src="questions.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
