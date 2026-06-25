@@ -187,6 +187,32 @@ main {
   transition: width 0.3s ease;
 }
 
+/* Per-question countdown timer */
+.timer-wrapper {
+  width: 100%;
+  height: 6px;
+  background-color: var(--border-color);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.timer-bar {
+  height: 100%;
+  width: 100%;
+  background-color: var(--success-color);
+  border-radius: 3px;
+  /* width + color are driven from JS; transition set inline per-question */
+}
+
+.timer-bar.warning {
+  background-color: #f97316;
+}
+
+.timer-bar.danger {
+  background-color: var(--danger-color);
+}
+
 .question-text-area {
   margin-bottom: 2.25rem;
   min-height: 80px;

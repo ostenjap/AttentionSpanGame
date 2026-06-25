@@ -26,6 +26,7 @@
           <p>This assessment is designed to measure your attention span, reading comprehension, visual focus, and impulse control through a series of 30 rapid-fire cognitive questions.</p>
           <p><strong>Assessment Guidelines:</strong></p>
           <p>• The quiz will advance immediately upon selecting an answer.<br>
+             • Each question is timed — if the bar runs out, it counts as a miss.<br>
              • No feedback will be provided during the test to prevent response conditioning.<br>
              • Answer as quickly and accurately as possible.</p>
         </div>
@@ -40,6 +41,11 @@
           <div class="progress-bar-bg">
             <div id="progress-bar-fill" class="progress-bar-fill"></div>
           </div>
+        </div>
+
+        <!-- Per-question countdown. Shrinks to 0; timeout counts as a miss + attention lapse. -->
+        <div class="timer-wrapper">
+          <div id="timer-bar" class="timer-bar"></div>
         </div>
 
         <div class="question-text-area">
@@ -111,6 +117,14 @@
             <tr>
               <td>Autopilot Glitches (Trick Failures)</td>
               <td id="stat-autopilot-glitches" class="score-highlight">0</td>
+            </tr>
+            <tr>
+              <td>Attention Lapses (Ran Out of Time)</td>
+              <td id="stat-lapses" class="score-highlight">0</td>
+            </tr>
+            <tr>
+              <td>Vigilance (Traps Caught)</td>
+              <td id="stat-vigilance">0%</td>
             </tr>
             <tr>
               <td>Text Traps Evaded</td>
